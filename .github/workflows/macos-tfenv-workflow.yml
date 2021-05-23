@@ -1,0 +1,95 @@
+
+
+name: "macOS tfenv CI workflow"
+
+
+on:
+  push:
+    branches: [ maintenance ]
+
+
+
+jobs:                              
+
+  macos-latest-tfenv:
+      name: "terraform tfenv macos-latest"
+      runs-on: macos-latest
+      steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: "brew update"
+        run: brew update      
+      - name: "check on brew version"
+        run: brew --version   #Homebrew 2.5.12   
+      - name: "brew cask list"
+        run:   brew list --cask #Warning: Calling brew cask list is deprecated! Use brew list [--cask] instead.
+      - name: "brew list"
+        run: brew list --formula #List all the installed formulas
+      - name: "Get OS X System Version"
+        run: sw_vers       
+      - name: "Get Mac System Details with system_profiler"
+        run: system_profiler | more  
+      - name: "osfingerprinting"
+        run: uname -a     
+      - name: "brew tfenv"
+        run: |
+          brew install tfenv  
+      - name: "Install latest terraform"
+        run: |
+          tfenv install latest
+
+
+
+  macos-1015-tfenv:
+      name: "tfenv macos-10.15"
+      runs-on: macos-10.15 # ProductVersion 10.15.7
+      steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: "brew update"
+        run: brew update      
+      - name: "check on brew version"
+        run: brew --version   #Homebrew 2.5.12   
+      - name: "brew cask list"
+        run:   brew list --cask #Warning: Calling brew cask list is deprecated! Use brew list [--cask] instead.
+      - name: "brew list"
+        run: brew list --formula #List all the installed formulas
+      - name: "Get OS X System Version"
+        run: sw_vers       
+      - name: "Get Mac System Details with system_profiler"
+        run: system_profiler | more  
+      - name: "osfingerprinting"
+        run: uname -a                           
+      - name: "brew tfenv"
+        run: |
+          brew install tfenv  
+      - name: "Install latest terraform"
+        run: |
+          tfenv install latest
+
+  macos-110-tfenv:
+      name: "tfenv macos-11.0"
+      runs-on: macos-11.0 # ProductVersion 11.0.1 macOS Big Sur
+      steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: "brew update"
+        run: brew update      
+      - name: "check on brew version"
+        run: brew --version   #Homebrew 2.5.12   
+      - name: "brew cask list"
+        run:   brew list --cask #Warning: Calling brew cask list is deprecated! Use brew list [--cask] instead.
+      - name: "brew list"
+        run: brew list --formula #List all the installed formulas
+      - name: "Get OS X System Version"
+        run: sw_vers       
+      - name: "Get Mac System Details with system_profiler"
+        run: system_profiler | more  
+      - name: "osfingerprinting"
+        run: uname -a                           
+      - name: "brew tfenv"
+        run: |
+          brew install tfenv  
+      - name: "Install latest terraform"
+        run: |
+          tfenv install latest
