@@ -5,7 +5,7 @@ name: "macOS tfenv CI workflow"
 
 on:
   push:
-    branches: [ maintenance ]
+    branches: [ test ]
 
 
 

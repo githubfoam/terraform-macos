@@ -4,7 +4,7 @@ name: "macOS terraform CI workflow"
 
 on:
   push:
-    branches: [ maintenance ]
+    branches: [ test ]
 
 
 
